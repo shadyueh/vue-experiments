@@ -1,6 +1,11 @@
+"use strict";
+
 var app = new Vue({
   el: '#app',
   data: {
+    timeover: false,
+    timer: '',
+    distance: 3000,
     title: "Darkside",
     artist: "Alan Walker",
     items: [
@@ -57,5 +62,28 @@ var app = new Vue({
       { text: "Let go of the light" },
       { text: "Fall into the dark side" },
     ],
-  }
+  },
+
+  methods: {
+    // define a flag para ocultar o botão
+    hideElement: function () {
+      this.timeover = true;
+    },
+
+    // limpa o contador
+    cancelAutoUpdate: function () {
+      clearInterval(this.timer);
+    },
+
+    // remove o contador ao final do lifecycle
+    beforeDestroy: function () {
+      this.cancelAutoUpdate();
+    },
+  },
+
+  created: function(){
+    // define o contador quando a instância for iniciada
+    this.button_timer = setInterval(this.hideElement, this.distance);
+  },
+
 })
