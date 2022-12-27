@@ -10,6 +10,7 @@ const lyrics:LyricProps[] = lyricData;
         :key="index"
         :title="lyric.title"
         :author="lyric.author"
+        :url="lyric.url"
         :verses="lyric.verses" />
 </template>
 
