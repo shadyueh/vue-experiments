@@ -3,7 +3,7 @@ export interface LyricProps {
   title: string
   author?: string
   url?: string
-  verses?: Array<{text:string}>
+  verses?: Array<{ text: string }>
 }
 
 const props = withDefaults(
@@ -21,14 +21,11 @@ const props = withDefaults(
   <div>
     <h2>{{ title }}</h2>
     <p><cite>{{ author }}</cite></p>
-    <iframe width="560" height="315" 
-    :src="url"
-    title="YouTube video player" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen></iframe>
+    <iframe width="560" height="315" :src="url" title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
     <ul>
-      <li  v-for="line,index in verses" :key="line.text">{{ line.text }}</li>
+      <li v-for="line, index in verses" :key="line.text">{{ line.text }}</li>
     </ul>
   </div>
 </template>
